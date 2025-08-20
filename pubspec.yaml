@@ -1,0 +1,59 @@
+name: joy_bor
+description: "bu mobilchi uz qilayotgan marafon"
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  json_annotation: ^4.9.0
+  freezed_annotation: ^3.1.0
+  dio: ^5.9.0
+  go_router: ^16.2.0
+  flutter_svg: ^2.0.9
+  flutter_screenutil: ^5.9.3
+  get_it: ^8.2.0
+  google_fonts: ^4.0.4
+  firebase_auth: ^5.7.0
+  firebase: ^9.0.3
+  hive: ^2.2.3
+  shared_preferences: ^2.5.3
+  connectivity_plus: ^6.1.5
+  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
+  injectable: ^2.5.1
+  hive_flutter: ^1.1.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^6.0.0
+  freezed: ^3.2.0
+  json_serializable: ^6.10.0
+  build_runner: ^2.7.0
+  injectable_generator: ^2.8.1
+
+
+flutter:
+
+
+  uses-material-design: true
+
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+
