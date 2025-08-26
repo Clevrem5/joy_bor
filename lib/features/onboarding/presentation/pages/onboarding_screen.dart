@@ -13,6 +13,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> with OnboardingMixi
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 
+
   @override
   Widget build(BuildContext context) {
     final data = list[_currentIndex];
