@@ -17,6 +17,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: appbar,
       body: SizedBox(
         width: size.width,
         height: size.height,
@@ -54,7 +55,7 @@ class AppScaffold extends StatelessWidget {
               ),
               Positioned.fill(
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 500, sigmaY: 300),
+                  filter: ImageFilter.blur(sigmaX: 500, sigmaY: 500),
                   child: SizedBox(),
                 ),
               ),

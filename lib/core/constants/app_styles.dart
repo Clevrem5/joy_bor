@@ -29,4 +29,63 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.cx100C0C,
   );
+
+  static final TextStyle w600s24cxWhite = GoogleFonts.sora(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColors.white,
+  );
+
+  // 2-kunniki va bu authdan olingan
+
+  static final TextStyle w400s14h100cxC8C7CF = GoogleFonts.sora(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    height: 1,
+    color: AppColors.cxC8C7CF,
+  );
+
+  static final TextStyle w400s12h100cx888888 = GoogleFonts.sora(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+    height: 1.5,
+    color: AppColors.cx888888,
+  );
+
+  static final TextStyle w400s14h100cxFFD700Yellow = GoogleFonts.sora(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    height: 1,
+    color: AppColors.cxFFD700,
+  );
+
+  static final TextStyle w400s15h100cxC8C7CF = GoogleFonts.sora(
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w400,
+    height: 1,
+    color: AppColors.cxC8C7CF,
+  );
+
+  static final TextStyle w600s18cx100C0C = GoogleFonts.sora(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColors.cx100C0C,
+  );
+  static final TextStyle w600s20cxSecondaryBlack = GoogleFonts.sora(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColors.cx1F1F1F,
+  );
+
+  static final TextStyle w400s16cxYellow = GoogleFonts.sora(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.cxFFD700,
+  );
+
+  static final TextStyle w400s16cx9CA4AB = GoogleFonts.sora(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.cx9CA4AB,
+  );
 }

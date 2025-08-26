@@ -1,20 +1,34 @@
-import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
-import 'package:joy_bor/core/services/local_storage.dart';
 import 'package:joy_bor/features/splash/presentation/cubit/splash_state.dart';
 
 import '../../../../core/constants/app_storege_keys.dart';
+import '../../../../core/constants/exports.dart';
 
 @Injectable()
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(const SplashState.loading());
-  final isOnboarding = StorageRepository.getBool(keyOfValue: AppKeys.onboarding);
 
-  void init() async {
-    emit(SplashState.loading());
-    await Future.delayed(Duration(seconds: 3));
+  Future<void> init() async {
+    emit(const SplashState.loading());
+    await Future.delayed(const Duration(seconds: 2));
+
+    final isOnboarding = StorageRepository.getBool(keyOfValue: AppKeys.onboarding);
     if (!isOnboarding) {
-      emit(SplashState.onboarding());
-    } else {}
+      emit(const SplashState.onboarding());
+      return;
+    }
+
+    final user = FirebaseAuth.instance.currentUser;
+    emit(user == null ? const SplashState.auth() : const SplashState.main());
+  }
+
+  void completeOnboarding() {
+    StorageRepository.setBool(key: AppKeys.onboarding, value: true);
+    emit(const SplashState.auth());
+  }
+
+  void goToMain() {
+    emit(const SplashState.main());
   }
 }

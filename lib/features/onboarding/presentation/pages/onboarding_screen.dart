@@ -1,6 +1,6 @@
 import 'package:joy_bor/core/constants/exports.dart';
 
-import '../../data/mixin/onboarding_mixin.dart';
+import '../mixin/onboarding_mixin.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -52,7 +52,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> with OnboardingMixi
                           ),
                         ],
                       );
-
                     },
                   ),
                 ),
@@ -83,14 +82,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> with OnboardingMixi
                     ),
                     Expanded(
                       child: AppButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (_currentIndex < list.length - 1) {
                             _pageController.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                             );
-                          } else {}
+                          } else {
+                            context.read<SplashCubit>().completeOnboarding();
+                          }
                         },
+                        textStyle: AppStyles.w600s24cx100C0C,
                         text: _currentIndex == list.length - 1 ? "Get Started" : "Next",
                       ),
                     ),

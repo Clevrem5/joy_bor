@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "427457414137",
+    "project_id": "joy-bor-95c03",
+    "storage_bucket": "joy-bor-95c03.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427457414137:android:2f7cebb50fc932434ab328",
+        "android_client_info": {
+          "package_name": "uz.clevrem.joy_bor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBH1d4hIN1edf1EJ4PyNgbYWfAf62GsYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

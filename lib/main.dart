@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:joy_bor/core/constants/app_colors.dart';
-import 'package:joy_bor/core/routes/app_router.dart';
-import 'package:joy_bor/features/splash/presentation/cubit/splash_cubit.dart';
+import 'package:joy_bor/core/app_bloc_observer.dart';
+import 'package:joy_bor/features/auth/presentation/cubits/auth_cubit.dart';
 
-import 'core/di/di.dart';
-import 'core/services/local_storage.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'core/constants/exports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   configureDependencies();
+  Bloc.observer=AppBlocServer();
   await StorageRepository.init();
   runApp(const MyApp());
 }
@@ -25,8 +23,12 @@ class MyApp extends StatelessWidget {
       designSize: Size(414, 896),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => BlocProvider(
-        create: (context) => getIt<SplashCubit>()..init(),
+      builder: (context, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => getIt<SplashCubit>()..init()),
+          BlocProvider(create: (context) => getIt<AuthCubit>()),
+        ],
+
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Clevrem',

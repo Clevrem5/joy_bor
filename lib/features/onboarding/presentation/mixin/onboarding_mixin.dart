@@ -1,5 +1,6 @@
 import '../../../../core/constants/exports.dart';
-import '../model/onboarding_model.dart';
+import '../../data/model/onboarding_model.dart';
+
 
 mixin OnboardingMixin {
  final List<OnboardingModel> list = [

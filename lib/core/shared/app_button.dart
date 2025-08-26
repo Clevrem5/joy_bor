@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:joy_bor/core/constants/exports.dart';
 
-
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
@@ -11,6 +10,7 @@ class AppButton extends StatelessWidget {
     this.radius = 17,
     this.backroundColor = AppColors.cxFFD700,
     this.textStyle,
+    this.isLoading,
   });
 
   final VoidCallback onPressed;
@@ -19,11 +19,13 @@ class AppButton extends StatelessWidget {
   final double? height;
   final Color? backroundColor;
   final TextStyle? textStyle;
+  final bool? isLoading;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: height!.h,
+      width: double.infinity,
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: backroundColor,
@@ -32,12 +34,21 @@ class AppButton extends StatelessWidget {
         child: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: onPressed,
-          child: Text(
-            text,
-            style: textStyle ?? AppStyles.w600s24cx100C0C,
-          ),
+          child: (isLoading ?? false)
+              ? SizedBox(
+                  height: 24.r,
+                  width: 24.r,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                  ),
+                )
+              : Text(
+                  text,
+                  style: textStyle ?? AppStyles.w600s18cx100C0C,
+                ),
         ),
       ),
     );
   }
 }
+// AppStyles.w600s24cx100C0C
