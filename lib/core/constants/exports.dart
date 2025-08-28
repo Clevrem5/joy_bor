@@ -18,4 +18,17 @@ export 'package:joy_bor/core/services/local_storage.dart';
 export 'package:google_fonts/google_fonts.dart';
 export "package:firebase_core/firebase_core.dart";
 export 'package:joy_bor/firebase_options.dart';
+export 'package:joy_bor/core/constants/app_icons.dart';
+export 'package:joy_bor/features/home/presentation/pages/home_screen.dart';
+export 'package:joy_bor/features/main/presentation/widgets/main_botom_bar.dart';
+export 'package:flutter/gestures.dart';
+export 'package:joy_bor/core/shared/app_dialog.dart';
+export 'package:joy_bor/core/shared/app_text_field.dart';
+export 'package:joy_bor/core/utils/app_validators.dart';
+export 'package:joy_bor/features/auth/presentation/pages/login_page.dart';
+export 'package:joy_bor/features/auth/presentation/pages/sign_up_page.dart';
+export 'package:joy_bor/features/main/presentation/pages/main_page.dart';
+export 'package:joy_bor/features/terms/pages/terms_page.dart';
+
+
 

@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'constants/exports.dart';
+import '../constants/exports.dart';
 
 class AppBlocServer extends BlocObserver {
   const AppBlocServer();

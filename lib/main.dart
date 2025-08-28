@@ -1,6 +1,6 @@
-import 'package:joy_bor/core/app_bloc_observer.dart';
+import 'package:joy_bor/core/services/app_bloc_observer.dart';
 import 'package:joy_bor/features/auth/presentation/cubits/auth_cubit.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'core/constants/exports.dart';
 
 void main() async {

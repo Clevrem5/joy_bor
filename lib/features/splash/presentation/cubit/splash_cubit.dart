@@ -10,8 +10,9 @@ class SplashCubit extends Cubit<SplashState> {
   SplashCubit() : super(const SplashState.loading());
 
   Future<void> init() async {
+    // FirebaseAuth.instance.signOut();
     emit(const SplashState.loading());
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
 
     final isOnboarding = StorageRepository.getBool(keyOfValue: AppKeys.onboarding);
     if (!isOnboarding) {

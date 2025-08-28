@@ -23,7 +23,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> with OnboardingMixi
         children: [
           _backroundImage(data.image),
           _gradient(),
-
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 26.w),
             child: Column(

@@ -1,3 +1,5 @@
+import 'package:joy_bor/features/home/presentation/widgets/home_body.dart';
+
 import '../../../../core/constants/exports.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,12 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      child: Center(
-        child: Text(
-          "Home",
-          style: TextStyle(color: AppColors.white),
-        ),
-      ),
+      child: HomeBody(),
     );
   }
 }

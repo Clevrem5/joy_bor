@@ -1,10 +1,6 @@
-import 'package:flutter/gestures.dart';
-import 'package:joy_bor/core/shared/app_dialog.dart';
-import 'package:joy_bor/core/shared/app_text_field.dart';
-import 'package:joy_bor/core/utils/app_validators.dart';
 import 'package:joy_bor/features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:joy_bor/features/auth/presentation/cubits/auth_state.dart';
-import 'package:joy_bor/features/auth/presentation/widgets/app_app_bar_leading_button.dart';
+import 'package:joy_bor/core/shared/app_app_bar_leading_button.dart';
 
 import '../../../../core/constants/exports.dart';
 
@@ -38,12 +34,13 @@ class _SignUpBodyState extends State<SignUpBody> {
       listener: (context, state) {
         state.whenOrNull(
           success: (user) {
+            // context.pop();
             showDialog(
               context: context,
               builder: (context) => AppDialog(
                 callback: () {
                   context.pop();
-                  context.go(AppRoutes.login);
+                  context.pushReplacement(AppRoutes.login);
                 },
               ),
             );
@@ -187,11 +184,12 @@ class _SignUpBodyState extends State<SignUpBody> {
         text: TextSpan(
           text: "By signing up you agree to our ",
           style: AppStyles.w400s16cx9CA4AB,
+          recognizer: TapGestureRecognizer()..onTap = () => context.push(AppRoutes.terms),
           children: [
             TextSpan(
               text: "Terms \n",
               style: AppStyles.w400s16cxYellow,
-              recognizer: TapGestureRecognizer()..onTap = () => context.go(AppRoutes.login),
+              recognizer: TapGestureRecognizer()..onTap = () => context.push(AppRoutes.terms),
             ),
             TextSpan(
               text: "and ",
@@ -201,7 +199,7 @@ class _SignUpBodyState extends State<SignUpBody> {
             TextSpan(
               text: "Conditions of Use",
               style: AppStyles.w400s16cxYellow,
-              recognizer: TapGestureRecognizer()..onTap = () => context.go(AppRoutes.login),
+              recognizer: TapGestureRecognizer()..onTap = () => context.push(AppRoutes.terms),
             ),
           ],
         ),

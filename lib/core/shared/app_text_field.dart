@@ -8,7 +8,9 @@ class AppTextField extends StatefulWidget {
     this.validator,
     this.obscureText = false,
     this.prefixIcon,
+    this.suffixIcon, // 🔑 qo‘shildi
     this.hintStyle,
+    this.fillColor,
   });
 
   final String? hint;
@@ -16,7 +18,9 @@ class AppTextField extends StatefulWidget {
   final FormFieldValidator<String>? validator;
   final bool obscureText;
   final Widget? prefixIcon;
+  final Widget? suffixIcon; // 🔑 tashqaridan keladigan suffix
   final TextStyle? hintStyle;
+  final Color? fillColor;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -28,7 +32,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   void initState() {
     super.initState();
-    _isObscure = widget.obscureText; // Boshlang‘ich qiymat
+    _isObscure = widget.obscureText;
   }
 
   @override
@@ -39,8 +43,14 @@ class _AppTextFieldState extends State<AppTextField> {
       validator: widget.validator,
       obscureText: _isObscure,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.only(
+          left: 8.w,
+          right: 8.w,
+          top: 8.h,
+          bottom: 8.h,
+        ),
         filled: true,
-        fillColor: AppColors.white26,
+        fillColor: widget.fillColor ?? AppColors.white26,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide.none,
@@ -48,19 +58,23 @@ class _AppTextFieldState extends State<AppTextField> {
         hintStyle: widget.hintStyle ?? AppStyles.w400s14h100cxC8C7CF,
         hintText: widget.hint ?? "",
         prefixIcon: widget.prefixIcon,
-        suffixIcon: widget.obscureText
-            ? IconButton(
-          icon: Icon(
-            _isObscure ? Icons.visibility_off : Icons.visibility,
-            color: Colors.white70,
-          ),
-          onPressed: () {
-            setState(() {
-              _isObscure = !_isObscure; // Ko‘rinish o‘zgaradi
-            });
-          },
-        )
-            : null,
+
+        // 🔑 suffixIcon logic
+        suffixIcon:
+            widget.suffixIcon ??
+            (widget.obscureText
+                ? IconButton(
+                    icon: Icon(
+                      _isObscure ? Icons.visibility_off : Icons.visibility,
+                      color: Colors.white70,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });
+                    },
+                  )
+                : null),
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:joy_bor/core/constants/exports.dart';
 import 'package:joy_bor/features/auth/presentation/pages/login_page.dart';
-import 'package:joy_bor/features/home/presentation/pages/home_screen.dart';
+import 'package:joy_bor/features/main/presentation/pages/main_page.dart';
 
 import '../cubit/splash_state.dart';
 
@@ -20,18 +20,10 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           onboarding: () => OnboardingScreen(),
-          main: () =>HomeScreen(),
+          main: () => MainPage(),
           auth: () => LoginPage(),
         );
-      },/*
-      AppScaffold(
-            child: Center(
-              child: Text(
-                "Home",
-                style: AppStyles.w600s19white,
-              ),
-            ),
-          ),*/
+      },
     );
   }
 }

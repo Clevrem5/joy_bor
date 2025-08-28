@@ -1,6 +1,3 @@
-import 'package:flutter/gestures.dart';
-import 'package:joy_bor/core/shared/app_text_field.dart';
-import 'package:joy_bor/core/utils/app_validators.dart';
 import 'package:joy_bor/features/auth/presentation/cubits/auth_state.dart';
 
 import '../../../../core/constants/exports.dart';
@@ -18,7 +15,7 @@ class LoginBody extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           success: (user) {
-            // context.read<SplashCubit>().main();
+            context.read<SplashCubit>().goToMain();
             context.pushReplacement(AppRoutes.main);
           },
           failure: (failure) => context.pop(),
@@ -105,11 +102,15 @@ class LoginBody extends StatelessWidget {
                       text: TextSpan(
                         text: "By signing up you agree to our ",
                         style: AppStyles.w400s16cx9CA4AB,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => context.push(
+                            AppRoutes.terms,
+                          ),
                         children: [
                           TextSpan(
                             text: "Terms \n",
                             style: AppStyles.w400s16cxYellow,
-                            recognizer: TapGestureRecognizer()..onTap = () => context.go(AppRoutes.login),
+                            recognizer: TapGestureRecognizer()..onTap=()=>context.push(AppRoutes.terms),
                           ),
                           TextSpan(
                             text: "and ",
@@ -119,7 +120,7 @@ class LoginBody extends StatelessWidget {
                           TextSpan(
                             text: "Conditions of Use",
                             style: AppStyles.w400s16cxYellow,
-                            recognizer: TapGestureRecognizer()..onTap = () => context.go(AppRoutes.login),
+                            recognizer: TapGestureRecognizer()..onTap=()=>context.push(AppRoutes.terms),
                           ),
                         ],
                       ),
